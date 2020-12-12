@@ -396,6 +396,10 @@ def AffichageSatsNiveau(personnage):
     vague()
 #Afficher les stas du niveau du joueur
 
+def questionaireCapital():
+    pass
+
+
 def WaitCommand(personnage):
     EnterCommand = False
     while EnterCommand != True:
