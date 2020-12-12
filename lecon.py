@@ -1,0 +1,4 @@
+print("Salut")
+
+input
+        
