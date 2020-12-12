@@ -1,5 +1,6 @@
 from random import randint
 import os
+import time
 
 niveauXP = 0 
 niveau_general = 1
@@ -71,6 +72,7 @@ def XP_getTotalLevel(toto):
 #Permet de savoir le nb d'xp requis pour passer un niveau
 
 def CombatExemple(personnage):
+                    os.system('cls')
                     print("Vous vous lancer dans un combat !")
                     print("Vous allez être mis à l'épreuve ! ")
                     print("recherche d'un adversaire... ")
@@ -175,6 +177,7 @@ def CombatExemple(personnage):
 #Permet de lancer un combat avec les consigne
 
 def CombatPro(personnage):
+    os.system('cls')
     Adversaire = True
     RemiseANiveau = True
     CombatEgal = True
@@ -353,10 +356,12 @@ def optionConsigneNiveau(personnage):
 #Permet de donne les consigne sur le niveau
 
 def règleCommandes():
+    os.system('cls')
     vague()
     print("1. Afficher les commandes : /commandes")
     print("2. Démarer un combat en mode entrainement (pour expliquer les règle) : /combat exercice")
     print("3. Lancer un combat en mode pro (Une fois règles compris) /combat")
+    print("4. afficher les crédit de façon ludique : /questions credit OU /qc")
     vague()
 #Permet d'afficher les commandes
 
@@ -369,6 +374,7 @@ def optionConsigneCommand():
         print("1. Afficher les commandes : /commandes")
         print("2. Démarer un combat en mode entrainement (pour expliquer les règle) : /combat exercice")
         print("3. Lancer un combat en mode pro (Une fois règles compris) /combat")
+        print("4. afficher les crédit de façon ludique : /questions credit OU /qc")
         separation()
 
         ChoixComprisConsigneCommand = input("Avez vous compris les consigne en rapport avec les commandes ? >>> ")
@@ -415,14 +421,14 @@ def questionaireCapital():
                 print("Non, il a servie de testeur aux bêta mais n'est pas le développeur officiel... ")
             elif un_1.lower() == "b":
                 os.system('cls')
-                print("Très bien ! en effet Leo Canova est le principal développer du jeu... ")
+                print("Très bien ! en effet Leo Canova est le principal développeur du jeu... ")
                 un_1 = False
             elif un_1.lower() == "c":
                 os.system('cls')
                 print("Non, il a beaucoup aidé à la création du jeu mais n'ai pas le principal développeur... ")
             elif un_1.lower() == "d":
                 os.system('cls')
-                print("Non, il a servie de testeur aux bêta mais n'est pas le développeur officiel... ")
+                print("Non, elle a servie de testeur aux bêta mais n'est pas le développeur officiel... ")
             else:
                 os.system('cls')
                 print("Je n'ai pas compris répondez par A, B, C ou D... ")
@@ -458,12 +464,35 @@ def questionaireCapital():
         print("Développeur : Léo Canova")
         print("Développeurs adjoin : Philippe Canova et Jason Champagne")
         print("Testeurs : Thomas Canova et Cécile Alcais")
-        separation()
-            
+        vague()
+        AimeCredit = True
+        while AimeCredit != False:
+            NoteCredit = input("Notez mon jeu entre 0 et 10... >>> ")
+            NoteCredit = int(NoteCredit)
+            if 7 <= NoteCredit <= 10:
+                print("Merci beaucoup ! ")
+                time.sleep(4)
+                AimeCredit = False
+            elif 5 <= NoteCredit <= 6:
+                print("Super c'est pas trop mal ! merci... ")
+                time.sleep(4)
+                AimeCredit = False
+            elif 3 <= NoteCredit <= 4:
+                print("Bah... je vais essayer de m'améliorer")
+                time.sleep(4)
+                AimeCredit = False
+            elif 0 <= NoteCredit <= 2:
+                print("Ohh... bon, ok...")
+                time.sleep(4)
+                AimeCredit = False
+            else:
+                print("Euh, c'est entre 0 et 10... ")
+#fait les question crédit
 
 def WaitCommand(personnage):
     EnterCommand = False
     while EnterCommand != True:
+        os.system('cls')
         CommandEnter = input(">>> ")
 
         if CommandEnter.lower() == "/combat exercice":
@@ -480,6 +509,8 @@ def WaitCommand(personnage):
             règleCommandes()
         elif CommandEnter.lower() == "/niveau":
             AffichageSatsNiveau(personnage)
+        elif CommandEnter.lower() == "/questions credit" or "qc":
+            questionaireCapital()
         else:
             print("Cette Command n'existe pas")
 #Permet de lancer le lanceur de command en boucle
@@ -488,19 +519,15 @@ def WaitCommand(personnage):
 
 personnage = Personnage()
 
-
-questionaireCapital()
-
-'''
+os.system('cls')
 Lance_jeu_bienvenue()
-
+os.system('cls')
 créationMonde()
-
+os.system('cls')
 optionPseudo(personnage)
-
+os.system('cls')
 optionConsigneNiveau(personnage)
-
+os.system('cls')
 optionConsigneCommand()
-
+os.system('cls')
 MiseEnAutonomie(personnage)
-'''
