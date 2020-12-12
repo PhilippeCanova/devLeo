@@ -397,8 +397,69 @@ def AffichageSatsNiveau(personnage):
 #Afficher les stas du niveau du joueur
 
 def questionaireCapital():
-    pass
+        un_1 = True
+        deux_1 = True
+        os.system('cls')
+        while un_1 != False:
+            separation()
+            print("Qui est le développeur de ce jeu ? ")
+            vague()
+            print("A. Thomas Canova")
+            print("B. Leo Canova")
+            print("C. Philippe Canova")
+            print("D. Cécile Alcais")
+            vague()
+            un_1 = input(">>> ")
+            if un_1.lower() == "a":
+                os.system('cls')
+                print("Non, il a servie de testeur aux bêta mais n'est pas le développeur officiel... ")
+            elif un_1.lower() == "b":
+                os.system('cls')
+                print("Très bien ! en effet Leo Canova est le principal développer du jeu... ")
+                un_1 = False
+            elif un_1.lower() == "c":
+                os.system('cls')
+                print("Non, il a beaucoup aidé à la création du jeu mais n'ai pas le principal développeur... ")
+            elif un_1.lower() == "d":
+                os.system('cls')
+                print("Non, il a servie de testeur aux bêta mais n'est pas le développeur officiel... ")
+            else:
+                os.system('cls')
+                print("Je n'ai pas compris répondez par A, B, C ou D... ")
 
+        while deux_1 != False: 
+            separation()
+            print("Avec quelle script ce jeu est développer ? ")
+            vague()
+            print("A. JavaScript")
+            print("B. C++")
+            print("C. Python")
+            print("D. Jungo")
+            vague()
+            deux_1 = input(">>> ")
+            if deux_1.lower() == "a":
+                os.system('cls')
+                print("Non, c'est faux... ")
+            elif deux_1.lower() == "b":
+                os.system('cls')
+                print("Non, c'est faux... ")
+            elif deux_1.lower() == "c":
+                os.system('cls')
+                print("Très bien, le jeu a bien était développer en python... ")
+                separation()
+                deux_1 = False
+            elif deux_1.lower() == "d":
+                os.system('cls')
+                print("Non, c'est faux... ")
+            else:
+                print("Je n'ai pas compris répondez par A, B, C ou D... ")
+
+        print("--+ Crédit +--")
+        print("Développeur : Léo Canova")
+        print("Développeurs adjoin : Philippe Canova et Jason Champagne")
+        print("Testeurs : Thomas Canova et Cécile Alcais")
+        separation()
+            
 
 def WaitCommand(personnage):
     EnterCommand = False
@@ -428,6 +489,9 @@ def WaitCommand(personnage):
 personnage = Personnage()
 
 
+questionaireCapital()
+
+'''
 Lance_jeu_bienvenue()
 
 créationMonde()
@@ -439,3 +503,4 @@ optionConsigneNiveau(personnage)
 optionConsigneCommand()
 
 MiseEnAutonomie(personnage)
+'''
