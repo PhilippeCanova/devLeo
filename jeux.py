@@ -4,13 +4,10 @@ import time
 from winsound import Beep
 
 from personnage import Personnage
-from utils import separation, vague
+from utils import vague, separation
 
-from jeux.combat import CombatExemple, CombatPro
-from jeux.jeu_chrono import jeuTemps
-
-niveauXP = 0
-niveau_general = 1
+from cmd_combat import CombatExemple, CombatPro
+from cmd_chrono import jeuTempsNormal
 
 
 
@@ -25,14 +22,16 @@ def Lance_jeu_bienvenue():
 
         if FirstInterface.upper() == "OUI":
             print("Bien commençons... ")
+            time.sleep(1)
             Lance_jeu = False
         elif FirstInterface.upper() == 'NON':
             print("Bon, ok, à plus tard peut être... ")
+            separation()
         else:
             print("Je n'ai pas compris... veuillez répondre par oui ou non ")
+            separation()
     separation()
 # Permet de Lancer le jeu
-
 
 def créationMonde():
     Lance_partie = True
@@ -53,7 +52,6 @@ def créationMonde():
             os.system('cls')
     separation()
 # permet de créé un monde (un seul possible pour le moment)
-
 
 def optionPseudo(personnage):
     pseudo = input(" Bien... Choisissez un pseudo >>> ")
@@ -76,7 +74,6 @@ def optionPseudo(personnage):
     print("Vous Avez fait votre première action, donc je vous offre 50 XP")
     personnage.addXP(50)
 # Permet de gérer les option du pseudo
-
 
 def optionConsigneNiveau(personnage):
     ComprisConsigne = True
@@ -256,8 +253,6 @@ def questionaireCredit():
             print("Euh, c'est entre 0 et 10... ")
 # fait les question crédit
 
-
-
 def WaitCommand(personnage):
     EnterCommand = False
     while EnterCommand != True:
@@ -282,7 +277,6 @@ def WaitCommand(personnage):
             jeuTemps(personnage)
         else:
             print("Cette Command n'existe pas")
-
 # Permet de lancer le lanceur de command en boucle
 
 
@@ -290,9 +284,9 @@ def WaitCommand(personnage):
 
 personnage = Personnage()
 
-#jeuTemps(personnage)
+jeuTempsNormal(personnage)
 
-"""os.system('cls')
+os.system('cls')
 Lance_jeu_bienvenue()
 os.system('cls')
 créationMonde()
@@ -302,5 +296,5 @@ os.system('cls')
 optionConsigneNiveau(personnage)
 os.system('cls')
 optionConsigneCommand()
-os.system('cls')"""
+os.system('cls')
 MiseEnAutonomie(personnage)
