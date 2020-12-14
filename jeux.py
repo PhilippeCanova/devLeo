@@ -107,11 +107,12 @@ def optionConsigneNiveau(personnage):
 def règleCommandes():
     os.system('cls')
     vague()
-    print("1. Afficher les commandes : /commandes")
-    print("2. Démarer un combat en mode entrainement (pour expliquer les règle) : /combat exercice")
-    print("3. Lancer un combat en mode pro (Une fois règles compris) /combat")
-    print("4. afficher les crédit de façon ludique : /questions credit OU /qc")
-    print("5. pour lancer le mini jeu seconde : /jeu seconde OU /js")
+    print("/commandes OU /com       ---> Afficher les commandes")
+    print("/niveau OU /niv          ---> afficher votre niveau")
+    print("/combat exercice OU /ce  ---> Démarer un combat en mode entrainement (pour expliquer les règle)")
+    print("/combat OU /c            ---> Lancer un combat en mode pro (Une fois règles compris)")
+    print("/questions credit OU /qc ---> afficher les crédit de façon ludique")
+    print("/jeu seconde OU /js      ---> pour lancer le mini jeu seconde")
     vague()
 # Permet d'afficher les commandes
 
@@ -121,11 +122,12 @@ def optionConsigneCommand():
         separation()
         print("Bien maintenant voici les règle concernant les commandes : ")
         vague()
-        print("1. Afficher les commandes : /commandes")
-        print("2. Démarer un combat en mode entrainement (pour expliquer les règle) : /combat exercice")
-        print("3. Lancer un combat en mode pro (Une fois règles compris) /combat")
-        print("4. afficher les crédit de façon ludique : /questions credit OU /qc")
-        print("5. pour lancer le mini jeu seconde : /jeu seconde OU /js")
+        print("/commandes OU /com       ---> Afficher les commandes")
+        print("/niveau OU /niv          ---> afficher votre niveau")
+        print("/combat exercice OU /ce  ---> Démarer un combat en mode entrainement (pour expliquer les règle)")
+        print("/combat OU /c            ---> Lancer un combat en mode pro (Une fois règles compris)")
+        print("/questions credit OU /qc ---> afficher les crédit de façon ludique")
+        print("/jeu seconde OU /js      ---> pour lancer le mini jeu seconde")
         separation()
 
         ChoixComprisConsigneCommand = input(
@@ -148,7 +150,6 @@ def optionConsigneCommand():
 # Donne les consigne pour les commandes
 
 def MiseEnAutonomie(personnage):
-    separation()
     print("Bien maintenant vous voici en autonomie : ")
     WaitCommand(personnage)
 # Permet d'avertir la mise en autonomie
@@ -256,20 +257,21 @@ def questionaireCredit():
 def WaitCommand(personnage):
     EnterCommand = False
     while EnterCommand != True:
+        time.sleep(3)
         os.system('cls')
         CommandEnter = input(">>> ")
 
-        if CommandEnter.lower() == "/combat exercice":
+        if CommandEnter.lower() in ["/combat exercice", "/ce"]:
             CombatExemple(personnage)
             print("Stats du Combat : ")
             personnage.display_niveaux()
-        elif CommandEnter.lower() == "/combat":
+        elif CommandEnter.lower() in ["/combat", "/c"]:
             CombatPro(personnage)
             print("Stats du Combat : ")
             personnage.display_niveaux()
-        elif CommandEnter.lower() == "/commandes":
+        elif CommandEnter.lower() in ["/commandes", "/com"]:
             règleCommandes()
-        elif CommandEnter.lower() == "/niveau":
+        elif CommandEnter.lower() in ["/niveau", "/niv"]:
             AffichageSatsNiveau(personnage)
         elif CommandEnter.lower() in ["/questions credit", "/qc"]:
             questionaireCredit()
