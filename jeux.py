@@ -274,7 +274,7 @@ def WaitCommand(personnage):
         elif CommandEnter.lower() in ["/questions credit", "/qc"]:
             questionaireCredit()
         elif CommandEnter.lower() in ["/jeu seconde", "/js"]:
-            jeuTemps(personnage)
+            jeuTempsNormal(personnage)
         else:
             print("Cette Command n'existe pas")
 # Permet de lancer le lanceur de command en boucle
@@ -283,8 +283,6 @@ def WaitCommand(personnage):
 """---------------------------------------------------------------------------"""
 
 personnage = Personnage()
-
-jeuTempsNormal(personnage)
 
 os.system('cls')
 Lance_jeu_bienvenue()
