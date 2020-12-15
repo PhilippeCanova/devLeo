@@ -7,8 +7,7 @@ from personnage import Personnage
 from utils import vague, separation
 
 from cmd_combat import CombatExemple, CombatPro
-from cmd_chrono import jeuTempsNormal
-
+from cmd_chrono import jeuTempsNormal, ChoixNiveau
 
 
 def Lance_jeu_bienvenue():
@@ -276,14 +275,12 @@ def WaitCommand(personnage):
         elif CommandEnter.lower() in ["/questions credit", "/qc"]:
             questionaireCredit()
         elif CommandEnter.lower() in ["/jeu seconde", "/js"]:
-            jeuTempsNormal(personnage)
+            ChoixNiveau(personnage)
         else:
             print("Cette Command n'existe pas")
 # Permet de lancer le lanceur de command en boucle
 
-
 """---------------------------------------------------------------------------"""
-
 personnage = Personnage()
 
 os.system('cls')
